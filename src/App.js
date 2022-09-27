@@ -1,24 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import React,{ useState } from "react";
 
-function App() {
+
+
+  
+  function App()
+  {
+
+    const [ isAlertVisible, setIsAlertVisible ] = React.useState(false);
+
+   const handleButtonClick = () => {
+        setIsAlertVisible(true);
+
+        setTimeout(() => {
+           setIsAlertVisible(false);
+        }, 10000);
+    }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+           <button style = {{width: "1366px",height: "636px"}} onClick={handleButtonClick}>
+
+           {
+           isAlertVisible && <div className='alert-container'>
+               <div className='alert-inner'><b>W</b></div>
+               
+           </div>  
+  } 
+  </button>
+        </div>
+  
   );
 }
 
